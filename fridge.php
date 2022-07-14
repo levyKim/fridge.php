@@ -3,7 +3,7 @@ class Fridge
 {
     public $serial = '111';
     protected $isWorking = true;
-    public $degress;
+    protected $degress;
     public $contain = [];
     public $basicFood = ['milk', 'cheese', 'apple'];
     protected $hasBasic = true;
