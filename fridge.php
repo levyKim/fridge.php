@@ -1,16 +1,24 @@
 <?php
 class Fridge
 {
-    public $serial = '111';
+   
+    public $serial = '111'; 
     protected $isWorking = true;
-    public $degress;
-    public $contain = [];
-    public $basicFood = ['milk', 'cheese', 'apple'];
+    public $degress; // Levy Kim: need to be protected;
+    public $contain = [];  // Levy Kim: need to be protected;
+    public $basicFood = ['milk', 'cheese', 'apple'];  // Levy Kim: need to be protected;
     protected $hasBasic = true;
     protected $MissingFoodItems =[];
 
     public function __construct($serial = 0, $degrees = 0, $contain = [])
     {
+        /*
+     // Levy Kim: 
+         $tesRef = new Fridge();
+         $anotherTesRef = new Fridge();
+         $tesRef->serial === $anotherTesRef->serial
+     קוד שלך נותן לי אופציה לעשות 2 מקררים עם אותו מספר סידורי. זה לא יכול להיות במציות 
+    */
         $this->serial = $serial;
         $this->degress = $degrees;
         $this->contain = $contain;
@@ -23,6 +31,8 @@ class Fridge
         } else {
             return 'false';
         }
+        
+
     }
 
     public function oppositIsWorking()
@@ -52,6 +62,8 @@ class Fridge
     public function printContainAndDegress()
     {
         var_dump($this->contain);
+        // LevyKim: לא טוב להשתמש VAR_DUMP להדפסה.
+       // LevyKim: שווה לעשות לולאה 
         echo "<br> the degress are: $this->degress <hr>";
     }
 
@@ -73,6 +85,9 @@ class Fridge
     //     {
     //     echo "Match not found";
     //     }
+    
+    
+    
 
     public function hasBasicFood()
     { 
@@ -82,6 +97,8 @@ class Fridge
             }
         }
         echo $this->hasBasic;
+         // LevyKim: פונקציה הזות בודקת רק אם קיים אחב ממוצרי BASIC במקרר. 
+        
     }
 
     public function getMissingFoodItems(){
